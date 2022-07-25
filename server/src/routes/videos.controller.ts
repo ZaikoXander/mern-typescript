@@ -34,6 +34,6 @@ export const deleteVideo: RequestHandler = async (req, res) => {
 
 export const updateVideo: RequestHandler = async (req, res) => {
   const videoUpdated = await Video.findByIdAndUpdate(req.params.id, req.body, { new: true })
-  if (videoUpdated) res.json(videoUpdated)
-  res.status(204).json()
+  if (videoUpdated) return res.json(videoUpdated)
+  return res.status(204).json()
 }
